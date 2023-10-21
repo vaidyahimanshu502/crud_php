@@ -29,19 +29,41 @@
                     $username = "root";
                     $password = '';
                     $database = "myshop";
+
+
+                    // Create connection
+                    $connection = new mysqli($servername, $username, $password, $database);
+
+                    // Check connection
+                    if($connection->connect_error) {
+                        die("Connection failed: " . $connection->connect_error);
+                    }
+
+                    $sql = "SELECT * FROM clients";
+                    $result = $connection->query($sql);
+
+                    // Checking result
+                    if(!$result) {
+                        die("Invalid query: " . $connection->error);
+                    }
+
+                    while($row = $result->fetch_assoc()) {
+                        echo '
+                        <tr>
+                            <td>'. $row['id'] .'</td>
+                            <td>'. $row['name'] .'</td>
+                            <td>'. $row['email'] .'</td>
+                            <td>'. $row['phone'] .'</td>
+                            <td>'. $row['address'] .'</td>
+                            <td>'. $row['created_at'] .'</td>
+                            <td>
+                                <a href="/myshop/edit.php" class="btn btn-primary btn-sm">Edit</a>
+                                <a href="/myshop/delete.php" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                      </tr>
+                        ';
+                    }
                 ?>
-                <tr>
-                    <td>10</td>
-                    <td>Himanshu Vaidya</td>
-                    <td>vaidya@gmail.com</td>
-                    <td>8294013841</td>
-                    <td>chatra, jharkhand</td>
-                    <td>10/05/2023</td>
-                    <td>
-                        <a href="/myshop/edit.php" class="btn btn-primary btn-sm">Edit</a>
-                        <a href="/myshop/delete.php" class="btn btn-danger btn-sm">Delete</a>
-                    </td>
-                </tr>
             </tbody>
         </table>
     </div>
