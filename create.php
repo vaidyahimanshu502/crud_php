@@ -28,7 +28,6 @@
             }
 
             // Adding new client to database
-
             $query = "INSERT INTO clients (name, email, phone, address)". 
                      "VALUES ('$name', '$email', '$phone', '$address')";
 

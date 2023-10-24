@@ -57,7 +57,7 @@
                             <td>'. $row['address'] .'</td>
                             <td>'. $row['created_at'] .'</td>
                             <td>
-                                <a href="/myshop/edit.php" class="btn btn-primary btn-sm">Edit</a>
+                                <a href="/myshop/edit.php?id='. $row['id'] .'" class="btn btn-primary btn-sm">Edit</a>
                                 <a href="/myshop/delete.php" class="btn btn-danger btn-sm">Delete</a>
                             </td>
                       </tr>
@@ -69,3 +69,5 @@
     </div>
 </body>
 </html>
+
+
