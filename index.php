@@ -9,7 +9,7 @@
 <body>
     <div class="container my-5">
         <h2>List of Clients</h2>
-        <a href="/myshop/create.php" class="btn btn-primary" role="button">New Client</a>
+        <a href="/myshop/create.php" class="btn btn-primary">New Client</a>
         <br>
         <table class="table">
             <thead>
